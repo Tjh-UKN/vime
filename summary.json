@@ -1,0 +1,115 @@
+{
+  "evidence_kind": "historical adaptation run, not the current PR head",
+  "source_log_sha256": "0b150d6ea1f13f61d2c4644b435b1575bdb0b8769a6c2b5c215d7be300754a87",
+  "source_log_bytes": 18183197,
+  "source_matches_original_evidence_archive": true,
+  "rounds": 100,
+  "train_steps": [
+    0,
+    99
+  ],
+  "total_samples": 25600,
+  "response_tokens": 54285777,
+  "ray_status": "SUCCEEDED",
+  "driver_exit_code": 0,
+  "weight_syncs_including_initial": 101,
+  "http_200_counts": {
+    "POST /update_weights": 202,
+    "POST /finish_weight_update": 202,
+    "POST /resume": 202
+  },
+  "mean_complete_step_seconds": 990.16,
+  "mean_native_perf_step_seconds": 990.3672755455971,
+  "mean_rollout_seconds": 472.3074756169319,
+  "mean_actor_seconds": 504.27561359882355,
+  "mean_posttrain_sync_seconds": 3.609,
+  "final_posttrain_sync_seconds": 3.6,
+  "grad_norm_min": 0.08432590548633938,
+  "grad_norm_max": 1.2871608694886865,
+  "first10": {
+    "round_start": 1,
+    "round_end": 10,
+    "wall_seconds": 1270.9,
+    "rollout_seconds": 519.7388423204422,
+    "actor_seconds": 740.2825398206711,
+    "raw_reward": -0.1546875,
+    "scored_correct_fraction": 0.42265625,
+    "response_length": 3124.65,
+    "truncated_fraction": 0.5640625,
+    "entropy": 0.6046403586864472
+  },
+  "last10": {
+    "round_start": 91,
+    "round_end": 100,
+    "wall_seconds": 868.2,
+    "rollout_seconds": 446.2749132871628,
+    "actor_seconds": 402.93963050842285,
+    "raw_reward": 0.6421875,
+    "scored_correct_fraction": 0.82109375,
+    "response_length": 1675.9515625,
+    "truncated_fraction": 0.119921875,
+    "entropy": 0.2578576445579529
+  },
+  "checkpoint_iterations": [
+    24,
+    49,
+    74,
+    99
+  ],
+  "checkpoint_saves": [
+    {
+      "line": 36944,
+      "seconds": 105.2
+    },
+    {
+      "line": 70067,
+      "seconds": 98.1
+    },
+    {
+      "line": 100883,
+      "seconds": 96.4
+    },
+    {
+      "line": 131612,
+      "seconds": 95.7
+    }
+  ],
+  "runtime": {
+    "python": "3.12 / aarch64",
+    "device_name_from_npu_smi": "Ascend910",
+    "logical_devices": 16,
+    "physical_cards": 8,
+    "train_devices": 8,
+    "rollout_devices": 8,
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0.post4",
+    "vllm": "0.30.0+empty",
+    "vllm_ascend": "0.30.0rc1",
+    "CANN": "9.1",
+    "FLA": "0.5.2"
+  },
+  "configuration": {
+    "TP": 4,
+    "PP": 2,
+    "SP": true,
+    "CP": 1,
+    "GDN_head_TP": true,
+    "runner": "V2",
+    "MTP": false,
+    "KL_penalty": false,
+    "prompts_per_round": 32,
+    "samples_per_prompt": 8,
+    "response_limit": 4096,
+    "prompt_limit": 1024,
+    "sequence_limit": 5120,
+    "recomputation": "full/uniform/1",
+    "cpu_optimizer_offload": true
+  },
+  "interpretation": [
+    "Training batches are shuffled; these are not fixed held-out evaluation scores.",
+    "Native perf/update_weights_time can refer to the preceding synchronization. The post-training sync series comes from the final native Timer for each round.",
+    "Native perf/step_time and complete step wall time have different recording boundaries. Complete step wall time uses successive post-training synchronization-end timestamps.",
+    "Native actor_train_tflops is retained in the metrics log, not interpreted as hybrid-GDN MFU.",
+    "The historical snapshot predates the additional input-layernorm TP-gradient fix in PR512 and used the 0.30rc1 HCCL compatibility adapter with unpacked transfers."
+  ]
+}
